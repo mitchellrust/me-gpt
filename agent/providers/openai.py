@@ -53,7 +53,7 @@ class OpenAIProvider:
         }
 
         payload = {
-            "model": model or self.config.model or "gpt-4",
+            "model": model or self.config.model or "gpt-4o-mini",
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": max_tokens or self.config.max_tokens or 1024,
         }

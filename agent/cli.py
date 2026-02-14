@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 # Create Typer app
 app = typer.Typer(
-    name="agent",
+    name="me-gpt",
     help="A minimal LLM agent CLI for OpenAI, Anthropic, and containerized MCP servers",
 )
 console = Console()
@@ -70,7 +70,7 @@ def get_provider(provider_name: str, config: AgentConfig) -> Provider:
 @app.command()
 def init(
     config_path: Optional[Path] = typer.Option(
-        None, "--config", "-c", help="Config file path (default: ~/.config/agent/config.yaml)"
+        None, "--config", "-c", help="Config file path (default: ~/.config/me-gpt/config.yaml)"
     ),
     force: bool = typer.Option(False, "--force", "-f", help="Overwrite existing config"),
 ):
@@ -96,7 +96,7 @@ def call(
     prompt: str = typer.Argument(..., help="The prompt to send"),
     provider: Optional[str] = typer.Option(None, "--provider", "-p", help="Provider to use"),
     config_path: Optional[Path] = typer.Option(
-        None, "--config", "-c", help="Config file path"
+        None, "--config", "-c", help="Config file path (default: ~/.config/me-gpt/config.yaml)"
     ),
     model: Optional[str] = typer.Option(None, "--model", "-m", help="Model override"),
     max_tokens: Optional[int] = typer.Option(None, "--max-tokens", help="Max tokens override"),
@@ -143,7 +143,7 @@ async def _call(
 def chat(
     provider: Optional[str] = typer.Option(None, "--provider", "-p", help="Provider to use"),
     config_path: Optional[Path] = typer.Option(
-        None, "--config", "-c", help="Config file path"
+        None, "--config", "-c", help="Config file path (default: ~/.config/me-gpt/config.yaml)"
     ),
     model: Optional[str] = typer.Option(None, "--model", "-m", help="Model override"),
 ):
@@ -212,7 +212,7 @@ async def _chat(provider_name: Optional[str], config_path: Optional[Path], model
 @app.command()
 def test(
     config_path: Optional[Path] = typer.Option(
-        None, "--config", "-c", help="Config file path"
+        None, "--config", "-c", help="Config file path (default: ~/.config/me-gpt/config.yaml)"
     ),
 ):
     """Test all configured providers with a simple prompt."""

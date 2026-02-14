@@ -33,10 +33,10 @@ class AgentConfig(BaseModel):
     @classmethod
     def get_config_path(cls) -> Path:
         """Get the default config file path."""
-        return Path.home() / ".config" / "agent" / "config.yaml"
+        return Path.home() / ".config" / "me-gpt" / "config.yaml"
 
     @classmethod
-    def load(cls, config_path: Optional[Path] = None) -> "AgentConfig":
+    def load(cls, config_path: Optional[Path] = None) -> AgentConfig:
         """Load configuration from file with environment variable overrides."""
         if config_path is None:
             config_path = cls.get_config_path()
@@ -74,13 +74,13 @@ def create_default_config() -> AgentConfig:
             "openai": ProviderConfig(
                 base_url="https://api.openai.com",
                 api_key_env="OPENAI_API_KEY",
-                model="gpt-4",
+                model="gpt-4o-mini",
                 max_tokens=1024,
             ),
             "anthropic": ProviderConfig(
                 base_url="https://api.anthropic.com",
                 api_key_env="ANTHROPIC_API_KEY",
-                model="claude-3-5-sonnet-20241022",
+                model="claude-3-haiku-20240307",
                 max_tokens=1024,
             ),
             "local_mcp": ProviderConfig(

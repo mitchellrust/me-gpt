@@ -112,12 +112,12 @@ providers:
   openai:
     base_url: https://api.openai.com
     api_key_env: OPENAI_API_KEY
-    model: gpt-4
+    model: gpt-4o-mini
     max_tokens: 1024
   anthropic:
     base_url: https://api.anthropic.com
     api_key_env: ANTHROPIC_API_KEY
-    model: claude-3-5-sonnet-20241022
+    model: claude-3-haiku-20240307
     max_tokens: 1024
   local_mcp:
     base_url: http://localhost:8080

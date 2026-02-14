@@ -2,7 +2,7 @@
 name = "agent"
 version = "0.1.0"
 description = "A minimal LLM agent CLI for OpenAI, Anthropic, and containerized MCP servers"
-authors = ["Mitchell Rust <mitchell@example.com>"]
+authors = ["Mitchell Rust <mitchellrust@gmail.com>"]
 readme = "README.md"
 packages = [{include = "agent"}]
 

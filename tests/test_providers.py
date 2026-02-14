@@ -17,7 +17,7 @@ async def test_openai_provider_complete(monkeypatch):
     monkeypatch.setenv("OPENAI_API_KEY", "test-key")
 
     config = ProviderConfig(
-        base_url="https://api.openai.com", api_key_env="OPENAI_API_KEY", model="gpt-4"
+        base_url="https://api.openai.com", api_key_env="OPENAI_API_KEY", model="gpt-4o-mini"
     )
 
     provider = OpenAIProvider(config)
@@ -28,7 +28,7 @@ async def test_openai_provider_complete(monkeypatch):
             200,
             json={
                 "id": "test-123",
-                "model": "gpt-4",
+                "model": "gpt-4o-mini",
                 "choices": [{"message": {"content": "Hello, world!"}}],
                 "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15},
             },
@@ -39,7 +39,7 @@ async def test_openai_provider_complete(monkeypatch):
 
     assert result.id == "test-123"
     assert result.text == "Hello, world!"
-    assert result.model == "gpt-4"
+    assert result.model == "gpt-4o-mini"
     assert result.usage is not None
     assert result.usage.total_tokens == 15
 
@@ -53,7 +53,7 @@ async def test_anthropic_provider_complete(monkeypatch):
     config = ProviderConfig(
         base_url="https://api.anthropic.com",
         api_key_env="ANTHROPIC_API_KEY",
-        model="claude-3-5-sonnet-20241022",
+        model="claude-3-haiku-20240307",
     )
 
     provider = AnthropicProvider(config)
@@ -64,7 +64,7 @@ async def test_anthropic_provider_complete(monkeypatch):
             200,
             json={
                 "id": "test-456",
-                "model": "claude-3-5-sonnet-20241022",
+                "model": "claude-3-haiku-20240307",
                 "content": [{"text": "Greetings!"}],
                 "usage": {"input_tokens": 8, "output_tokens": 3},
             },
@@ -75,7 +75,7 @@ async def test_anthropic_provider_complete(monkeypatch):
 
     assert result.id == "test-456"
     assert result.text == "Greetings!"
-    assert result.model == "claude-3-5-sonnet-20241022"
+    assert result.model == "claude-3-haiku-20240307"
     assert result.usage is not None
     assert result.usage.prompt_tokens == 8
     assert result.usage.completion_tokens == 3

@@ -54,7 +54,7 @@ class AnthropicProvider:
         }
 
         payload = {
-            "model": model or self.config.model or "claude-3-5-sonnet-20241022",
+            "model": model or self.config.model or "claude-3-haiku-20240307",
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": max_tokens or self.config.max_tokens or 1024,
         }
