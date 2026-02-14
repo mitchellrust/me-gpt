@@ -1,4 +1,4 @@
-# Agent
+# Me-GPT
 
 A minimal LLM agent CLI for OpenAI, Anthropic, and containerized MCP servers.
 
@@ -28,7 +28,7 @@ pip install -e .
 
 ## Configuration
 
-Create a config file at `~/.config/agent/config.yaml`:
+Create a config file at `~/.config/me-gpt/config.yaml`:
 
 ```yaml
 default_provider: openai
@@ -126,7 +126,3 @@ Your containerized MCP servers should implement:
   }
 }
 ```
-
-## License
-
-MIT
