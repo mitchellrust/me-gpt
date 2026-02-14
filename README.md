@@ -12,18 +12,17 @@ A minimal LLM agent CLI for OpenAI, Anthropic, and containerized MCP servers.
 
 ## Installation
 
-### Using Poetry (recommended)
+For production use, see [INSTALL.md](INSTALL.md) for detailed installation instructions including:
+- Installing as a standalone executable with `pipx`
+- Installing with `pip` 
+- Using the `bin/agent` shim script
+- Troubleshooting Python 3.14 compatibility issues
+
+### Quick Start (Development)
 
 ```bash
 poetry install
-```
-
-### Using pip
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -e .
+poetry run agent --help
 ```
 
 ## Configuration
