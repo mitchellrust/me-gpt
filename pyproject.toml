@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "agent"
+version = "0.1.0"
+description = "A minimal LLM agent CLI for OpenAI, Anthropic, and containerized MCP servers"
+authors = ["Mitchell Rust <mitchell@example.com>"]
+readme = "README.md"
+packages = [{include = "agent"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = "^0.9.0"
+httpx = "^0.26.0"
+pydantic = "^2.5.0"
+pyyaml = "^6.0.1"
+rich = "^13.7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-asyncio = "^0.23.0"
+respx = "^0.20.0"
+black = "^23.12.0"
+ruff = "^0.1.0"
+
+[tool.poetry.scripts]
+agent = "agent.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I"]
